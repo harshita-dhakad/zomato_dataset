@@ -11,8 +11,8 @@ def create_order_item(n):
     order_data = []
     order_ids = set()
 
-    start_date = datetime(2023, 1, 1)
-    end_date = datetime(2025, 1, 31)
+    start_date = datetime(2024, 1, 1)
+    end_date = datetime(2024, 12, 31)
     total_days = (end_date - start_date).days
 
     while len(order_ids) < n:
@@ -58,7 +58,7 @@ order_data = create_order_item(200000)
 df = pd.DataFrame(order_data)
 
 # # Save DataFrame to CSV
-df.to_csv("output.csv", index=False)
+df.to_csv("order_list.csv", index=False)
 
 # Display first few rows
 
