@@ -10,7 +10,7 @@ result = orderdf.groupby('orderId').agg(
     user_id=('user_id', 'first'),
     restaurant_id=('restaurantId', 'first'),
     date=('date', 'first')
-)
+).reset_index() 
 
 # Define the list of payment methods
 payment_methods = ["Cash", "UPI", "Card"]
