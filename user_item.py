@@ -22,7 +22,10 @@ def create_order_item(n):
         order_ids.add(order_num)
 
         rest_id = random.randint(1, 2000)  # Random restaurant ID
-        user_id = random.randint(1, 10000)  # Random user ID
+        user_id = random.randint(1, 10000)  
+        user_city = userdf[userdf['user_id'] == user_id]['city'].iloc[0]
+        res = resdf[resdf['city'] == user_city]['restaurant_id'].tolist()
+        rest_id = random.choice(res)
         date = (start_date + timedelta(days=random.randint(0, total_days))).strftime("%Y-%m-%d")
 
         # Fetch items for the selected restaurant
@@ -52,13 +55,14 @@ def create_order_item(n):
     return order_data
 
 # Generate data
-order_data = create_order_item(200000)
+order_data = create_order_item(300000)
 
 # Convert to Pandas DataFrame
 df = pd.DataFrame(order_data)
 
 # # Save DataFrame to CSV
 df.to_csv("order_list.csv", index=False)
+
 
 # Display first few rows
 
