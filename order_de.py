@@ -23,3 +23,7 @@ result.insert(1, "payment_method", random_payment_methods)
 
 # Print the result
 result.to_csv("order.csv", index=False)
+
+
+order_id_5 = result[result["orderId"] == 5]
+print(order_id_5)
